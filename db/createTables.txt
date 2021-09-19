@@ -1,0 +1,60 @@
+Drop table if exists ChannelUser;
+Drop table if exists Message;
+Drop table if exists Channel;
+Drop table if exists Users;
+
+CREATE TABLE Users (
+    idUser INT AUTO_INCREMENT,
+    username varchar(255) NOT NULL UNIQUE,
+    password varchar(255) NOT NULL,
+   PRIMARY KEY (idUser)
+);
+
+CREATE TABLE Channel(
+    idChannel INT AUTO_INCREMENT,
+    name varchar(255) UNIQUE,
+    admin INT,
+    channelToken varchar(255),
+   PRIMARY KEY (idChannel),
+   FOREIGN KEY (admin) REFERENCES Users(idUser)
+);
+CREATE TABLE Message (
+    idMsg INT AUTO_INCREMENT,
+    idUser INT,
+    idChannel INT,
+    content varchar(255),
+    image_url varchar(255),
+    dateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (idMsg),
+   FOREIGN KEY (idUser) REFERENCES Users(idUser),
+   FOREIGN KEY (idChannel) REFERENCES Channel(idChannel)
+);
+CREATE TABLE ChannelUser(
+    idChannelUser INT AUTO_INCREMENT,
+   idUser INT,
+   idChannel INT,
+   active TINYINT DEFAULT 0,
+   PRIMARY KEY (idChannelUser),
+   FOREIGN KEY (idUser) REFERENCES Users(idUser),
+   FOREIGN KEY (idChannel) REFERENCES Channel(idChannel)
+);
+
+
+INSERT INTO Users ( username, password) VALUES ( 'Ricardo', '$2y$10$kelDqQq0QCo1SiBjOkye0OtGAjwC4xbl1YVaf2xZ8jvkrtNHW1TUq');
+INSERT INTO Users ( username, password) VALUES ( 'Anabela', '$2y$10$21AsVF5SA10n4yU4CVRgE./xEn9SIDwQtdmQRDcowIexKo7DN6sle');
+INSERT INTO Users ( username, password) VALUES ( 'André', '$2y$10$B42RSAnKK5Cp212ujD.dtuSXzIfUJ6SgDY3U3cEAYKMHuCJQ11Tvm');
+INSERT INTO Users ( username, password) VALUES ( 'Joaquim', '$2y$10$kelDqQq0QCo1SiBjOkye0OtGAjwC4xbl1YVaf2xZ8jvkrtNHW1TUq');
+INSERT INTO Users ( username, password) VALUES ( 'Maria', '$2y$10$21AsVF5SA10n4yU4CVRgE./xEn9SIDwQtdmQRDcowIexKo7DN6sle');
+INSERT INTO Users ( username, password) VALUES ( 'Madalena', '$2y$10$B42RSAnKK5Cp212ujD.dtuSXzIfUJ6SgDY3U3cEAYKMHuCJQ11Tvm');
+INSERT INTO Users ( username, password) VALUES ( 'António', '$2y$10$kelDqQq0QCo1SiBjOkye0OtGAjwC4xbl1YVaf2xZ8jvkrtNHW1TUq');
+INSERT INTO Users ( username, password) VALUES ( 'Henrique', '$2y$10$21AsVF5SA10n4yU4CVRgE./xEn9SIDwQtdmQRDcowIexKo7DN6sle');
+INSERT INTO Users ( username, password) VALUES ( 'Catarina', '$2y$10$B42RSAnKK5Cp212ujD.dtuSXzIfUJ6SgDY3U3cEAYKMHuCJQ11Tvm');
+INSERT INTO Users ( username, password) VALUES ( 'Nuno', '$2y$10$kelDqQq0QCo1SiBjOkye0OtGAjwC4xbl1YVaf2xZ8jvkrtNHW1TUq');
+INSERT INTO Users ( username, password) VALUES ( 'Manuel', '$2y$10$21AsVF5SA10n4yU4CVRgE./xEn9SIDwQtdmQRDcowIexKo7DN6sle');
+INSERT INTO Users ( username, password) VALUES ( 'Joana', '$2y$10$B42RSAnKK5Cp212ujD.dtuSXzIfUJ6SgDY3U3cEAYKMHuCJQ11Tvm');
+INSERT INTO Users ( username, password) VALUES ( 'Miguel', '$2y$10$kelDqQq0QCo1SiBjOkye0OtGAjwC4xbl1YVaf2xZ8jvkrtNHW1TUq');
+INSERT INTO Users ( username, password) VALUES ( 'Marco', '$2y$10$21AsVF5SA10n4yU4CVRgE./xEn9SIDwQtdmQRDcowIexKo7DN6sle');
+INSERT INTO Users ( username, password) VALUES ( 'José', '$2y$10$B42RSAnKK5Cp212ujD.dtuSXzIfUJ6SgDY3U3cEAYKMHuCJQ11Tvm');
+INSERT INTO Users ( username, password) VALUES ( 'Mariana', '$2y$10$kelDqQq0QCo1SiBjOkye0OtGAjwC4xbl1YVaf2xZ8jvkrtNHW1TUq');
+INSERT INTO Users ( username, password) VALUES ( 'Silvia', '$2y$10$21AsVF5SA10n4yU4CVRgE./xEn9SIDwQtdmQRDcowIexKo7DN6sle');
+INSERT INTO Users ( username, password) VALUES ( 'Francisco', '$2y$10$B42RSAnKK5Cp212ujD.dtuSXzIfUJ6SgDY3U3cEAYKMHuCJQ11Tvm');

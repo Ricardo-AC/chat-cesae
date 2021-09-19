@@ -1,0 +1,32 @@
+.side-navbar {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color:rgb(13, 8, 88,0.7);
+	backdrop-filter: blur(1px);
+    transition: 0.5s;
+  }
+  #users-list{
+    overflow-y: scroll;
+  overflow-x: hidden;
+  height: 99vh;
+  } 
+
+#users-list::-webkit-scrollbar {
+	display: none;
+  }
+
+  .my-container {
+    transition: 0.4s;
+  }
+  
+  .active-nav {
+    margin-left: 0px;
+  }
+  
+  /* for main section */
+  .active-cont {
+    margin-left: 180px;
+  }
+  

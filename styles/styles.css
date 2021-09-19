@@ -1,0 +1,70 @@
+
+body { 
+	font-family: 'PT Sans', Georgia, serif;background-color: rgb(13, 8, 88); }
+	#username{
+		color: white;
+	}
+	label {
+		cursor: pointer;
+		/* Style as you please, it will become the visible UI component. */
+	 }
+	 
+	 #upload-photo {
+		opacity: 0;
+		position: absolute;
+		z-index: -1;
+	 }
+	 .grow { transition: all 0.1s ease-in-out; }
+.grow:hover { transform: scale(1.1)}
+
+#msgBox{
+	height: calc(100vh - 75px);
+overflow-y: scroll;
+  overflow-x: hidden;
+}
+#msgBox::-webkit-scrollbar {
+	display: none;
+  }
+.topBottom{
+	background-color:rgb(13, 8, 88,0.7);
+	backdrop-filter: blur(1px);
+}
+
+.discussion {
+	max-width: 600px;
+	margin: 0 auto;
+	
+	display: flex;
+	flex-flow: column wrap;
+}
+
+.discussion > .bubble {
+	border-radius: 1em;
+	padding: 0.25em 0.75em;
+	margin: 0.0625em;
+	max-width: 50%;
+}
+
+.discussion > .bubble.sender {
+	align-self: flex-start;
+	background-color: cornflowerblue;
+	color: #fff;
+}
+.discussion > .bubble.recipient {
+	align-self: flex-end;
+	background-color: #efefef;
+}
+
+.discussion > .bubble.sender.first { border-bottom-left-radius: 0.1em; }
+.discussion > .bubble.sender.last { border-top-left-radius: 0.1em; }
+.discussion > .bubble.sender.middle {
+	border-bottom-left-radius: 0.1em;
+ 	border-top-left-radius: 0.1em;
+}
+
+.discussion > .bubble.recipient.first { border-bottom-right-radius: 0.1em; }
+.discussion > .bubble.recipient.last { border-top-right-radius: 0.1em; }
+.discussion > .bubble.recipient.middle {
+	border-bottom-right-radius: 0.1em;
+	border-top-right-radius: 0.1em;
+}
